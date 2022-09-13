@@ -7,15 +7,15 @@
 * Author: Elizeu Oliveira da Silva
 **/
 
-add_action('wp_enqueue_scripts', 'load_scripts');
+add_action('wp_enqueue_scripts', function(){
+  //Add css
+  wp_enqueue_style( 'fancybox',plugins_url( '/fancybox/jquery.fancybox-1.3.4.css',  __FILE__ ) );
 
-function load_scripts(){
-    //Add css
-    wp_enqueue_style( 'fancybox',plugins_url( '/fancybox/jquery.fancybox-1.3.4.css',  __FILE__ ) );
+  //Add js
+  wp_enqueue_script( 'fancybox', plugins_url('/fancybox/jquery.fancybox-1.3.4.js', __FILE__ ) , array(), '1.0.0', true );
+  
+});
 
-    //Add js
-    wp_enqueue_script( 'fancybox', plugin_dir_url('/fancybox/jquery.fancybox-1.3.4.js', __FILE__ ) , true );
-}
 
 
 
